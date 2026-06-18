@@ -6,6 +6,8 @@
 #include "SensorVazao.h"
 #include "SensorTemperatura.h"
 #include "Bomba.h"
+#include "Alarme.h"
+#include <vector>
 
 class EstacaoBombeamento {
 private:
@@ -16,6 +18,8 @@ private:
 
     Bomba bomba1;
     Bomba bomba2;
+
+    vector<Alarme> alarmes;
 
 public:
     void atualizarSensores();
