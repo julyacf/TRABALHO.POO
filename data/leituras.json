@@ -1,0 +1,8 @@
+{
+  "nivel": 32,
+  "pressao": 3.2,
+  "vazao": 54,
+  "temperatura": 74,
+  "bomba1": false,
+  "bomba2": false
+}
