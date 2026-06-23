@@ -11,20 +11,19 @@ void EstacaoBombeamento::atualizarSensores() {
     float vazao = sensorVazao.ler();
     float temperatura = sensorTemperatura.ler();
 
-     ofstream arquivo("../data/leituras.json");
-     arquivo << "{\n";
-     arquivo << "  \"nivel\": " << nivel << ",\n";
-     arquivo << "  \"pressao\": " << pressao << ",\n";
-     arquivo << "  \"vazao\": " << vazao << ",\n";
-     arquivo << "  \"temperatura\": " << temperatura << ",\n";
-     arquivo << "  \"bomba1\": "
-        << (bomba1.estaLigada() ? "true" : "false")
-        << ",\n";
-     arquivo << "  \"bomba2\": "
-        << (bomba2.estaLigada() ? "true" : "false")
-        << "\n";
-     arquivo << "}\n";
-     arquivo.close();
+     ofstream historico("../data/historico.csv", ios::app);
+
+if (historico.tellp() == 0) {
+    historico << "nivel,pressao,vazao,temperatura\n";
+}
+
+historico << nivel << ","
+          << pressao << ","
+          << vazao << ","
+          << temperatura
+          << endl;
+
+historico.close();
 
 
 
@@ -67,6 +66,25 @@ if (nivel < 20) {
     Alarme("Temperatura alta")
      );
     }
+
+    if (nivel < 20) {
+    alarmes.push_back(
+        Alarme("Nivel baixo")
+    );
+}
+
+if (pressao > 7) {
+    alarmes.push_back(
+        Alarme("Pressao alta")
+    );
+}
+
+if (temperatura > 65) {
+    alarmes.push_back(
+        Alarme("Temperatura alta")
+    );
+}
+
 cout << "Bomba 1: ";
 
 if (bomba1.estaLigada()) {
@@ -96,6 +114,38 @@ else {
              << endl;
     }
 }
+
+ofstream arquivo("../data/leituras.json");
+
+arquivo << "{\n";
+arquivo << "  \"nivel\": " << nivel << ",\n";
+arquivo << "  \"pressao\": " << pressao << ",\n";
+arquivo << "  \"vazao\": " << vazao << ",\n";
+arquivo << "  \"temperatura\": " << temperatura << ",\n";
+
+arquivo << "  \"bomba1\": "
+        << (bomba1.estaLigada() ? "true" : "false")
+        << ",\n";
+
+arquivo << "  \"bomba2\": "
+        << (bomba2.estaLigada() ? "true" : "false")
+        << ",\n";
+
+arquivo << "  \"alarmes\": [";
+
+for (size_t i = 0; i < alarmes.size(); i++) {
+
+    arquivo << "\"" << alarmes[i].getMensagem() << "\"";
+
+    if (i < alarmes.size() - 1) {
+        arquivo << ", ";
+    }
+}
+
+arquivo << "]\n";
+arquivo << "}";
+
+arquivo.close();
 
 cout << endl;
     cout << endl;

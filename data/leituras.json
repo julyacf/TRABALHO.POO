@@ -1,8 +1,9 @@
 {
-  "nivel": 32,
-  "pressao": 3.2,
-  "vazao": 54,
-  "temperatura": 74,
+  "nivel": 24,
+  "pressao": 9.3,
+  "vazao": 93,
+  "temperatura": 25,
   "bomba1": false,
-  "bomba2": false
+  "bomba2": false,
+  "alarmes": ["Pressao alta", "Pressao alta"]
 }
