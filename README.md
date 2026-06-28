@@ -33,7 +33,7 @@ Responsável por:
 
 ## Estrutura do Projeto
 
-text
+```text
 TrabalhoPOO/
 ├── dispositivo_cpp/
 ├── supervisor_phyton/
@@ -41,7 +41,7 @@ TrabalhoPOO/
 ├── README.md
 ├── AI_LOG.md
 └── planejamento.md
-
+```
 
 ---
 
@@ -93,9 +93,9 @@ Todos os sensores herdam da classe abstrata Sensor.
 
 Os sensores são manipulados através de ponteiros para a classe base utilizando:
 
-cpp
+```cpp
 vector<Sensor*>
-
+```
 
 ### Composição
 
@@ -121,7 +121,7 @@ Centraliza toda a persistência de dados do sistema, sendo responsável pela esc
 
 ## Diagrama de Classes
 
-text
+```text
 Sensor (abstrata)
 ├── SensorNivel
 ├── SensorPressao
@@ -138,7 +138,7 @@ Repository
 ├── salvarHistorico()
 ├── salvarJson()
 └── salvarComando()
-
+```
 
 ---
 
@@ -160,7 +160,7 @@ O arquivo leituras.json representa o estado atual da estação de bombeamento.
 
 ### Exemplo
 
-json
+```json
 {
   "nivel": 47,
   "pressao": 4,
@@ -170,26 +170,26 @@ json
   "bomba2": true,
   "alarmes": []
 }
-
+```
 
 ---
 
 ## Como Compilar
 
-bash
+```bash
 cd dispositivo_cpp
 g++ *.cpp -o projeto
 ./projeto
-
+```
 
 ---
 
 ## Como Executar o Supervisor
 
-bash
+```bash
 cd supervisor_phyton
 streamlit run app.py
-
+```
 
 ---
 
