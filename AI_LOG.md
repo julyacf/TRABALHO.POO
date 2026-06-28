@@ -60,3 +60,25 @@ Auxiliar na implementação de tratamento de exceções.
 
 **Justificativa:**
 Foi priorizado manter o sistema funcionando e atender aos requisitos obrigatórios.
+
+## Registro 4
+
+*Data:* 27/06/2026
+
+*Ferramenta:* ChatGPT
+
+*Pedido:*
+Auxiliar na implementação e validação da alternância automática das bombas.
+
+*Aceito:*
+- Implementação da alternância da bomba principal a cada 10 ciclos.
+- Ajuste da lógica de acionamento para utilizar a bomba principal ativa.
+- Revisão e validação dos testes realizados.
+
+*Rejeitado:*
+- Alteração completa da lógica de controle já existente.
+
+*Justificativa:*
+Foi necessário implementar a regra específica da dupla preservando o comportamento já validado do restante do sistema.
+
+---
